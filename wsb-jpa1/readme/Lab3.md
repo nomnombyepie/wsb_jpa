@@ -14,7 +14,7 @@ Napisz testy do zapytan w nastepujacej formie:
 3. do zapytania nr 3 - test DAO
 4. do zapytania nr 4 - test DAO
 
-W PatientEntity, nad relacja do VisitEntity dodaj adnotacje
+W com.jpacourse.persistance.entity.PatientEntity, nad relacja do VisitEntity dodaj adnotacje
 
 @Fetch(FetchMode.SELECT)
 

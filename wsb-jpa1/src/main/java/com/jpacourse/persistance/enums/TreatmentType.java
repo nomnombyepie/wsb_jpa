@@ -4,5 +4,15 @@ public enum TreatmentType {
 
 	USG,
 	EKG,
-	RTG
+	RTG,
+	BT,
+	AT,
+	CS,
+	EPT,
+	MRI,
+	SB,
+	SRG,
+	LES,
+	GT,
+	ATT
 }

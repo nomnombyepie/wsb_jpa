@@ -1,6 +1,7 @@
 package com.jpacourse.persistance.entity;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.*;
 
@@ -8,81 +9,105 @@ import jakarta.persistence.*;
 @Table(name = "PATIENT")
 public class PatientEntity {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Column(nullable = false)
-	private String firstName;
+    @Column(nullable = false)
+    private String firstName;
 
-	@Column(nullable = false)
-	private String lastName;
+    @Column(nullable = false)
+    private String lastName;
 
-	@Column(nullable = false)
-	private String telephoneNumber;
+    @Column(nullable = false)
+    private String telephoneNumber;
 
-	private String email;
+    private String email;
 
-	@Column(nullable = false)
-	private String patientNumber;
+    @Column(nullable = false)
+    private String patientNumber;
 
-	@Column(nullable = false)
-	private LocalDate dateOfBirth;
+    @Column(nullable = false)
+    private LocalDate dateOfBirth;
 
-	public Long getId() {
-		return id;
-	}
+    //unidirectional from parent's end
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "patient_id")
+    private List<AddressEntity> addressList;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    //bidirectional
+    @OneToMany(mappedBy = "patient")
+    private List<VisitEntity> visitList;
 
-	public String getFirstName() {
-		return firstName;
-	}
+    public List<VisitEntity> getVisitList() {
+        return visitList;
+    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+    public void setVisitList(List<VisitEntity> visitList) {
+        this.visitList = visitList;
+    }
 
-	public String getLastName() {
-		return lastName;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getTelephoneNumber() {
-		return telephoneNumber;
-	}
+    public String getFirstName() {
+        return firstName;
+    }
 
-	public void setTelephoneNumber(String telephoneNumber) {
-		this.telephoneNumber = telephoneNumber;
-	}
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public String getLastName() {
+        return lastName;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public String getPatientNumber() {
-		return patientNumber;
-	}
+    public String getTelephoneNumber() {
+        return telephoneNumber;
+    }
 
-	public void setPatientNumber(String patientNumber) {
-		this.patientNumber = patientNumber;
-	}
+    public void setTelephoneNumber(String telephoneNumber) {
+        this.telephoneNumber = telephoneNumber;
+    }
 
-	public LocalDate getDateOfBirth() {
-		return dateOfBirth;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setDateOfBirth(LocalDate dateOfBirth) {
-		this.dateOfBirth = dateOfBirth;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
+    public String getPatientNumber() {
+        return patientNumber;
+    }
+
+    public void setPatientNumber(String patientNumber) {
+        this.patientNumber = patientNumber;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public List<AddressEntity> getAddressList() {
+        return addressList;
+    }
+
+    public void setAddressList(List<AddressEntity> addressList) {
+        this.addressList = addressList;
+    }
 }
