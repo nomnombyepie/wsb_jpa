@@ -30,12 +30,12 @@ public class PatientEntity {
     @Column(nullable = false)
     private LocalDate dateOfBirth;
 
-    //unidirectional from parent's end
+
     @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "patient_id")
     private List<AddressEntity> addressList;
 
-    //bidirectional
+
     @OneToMany(mappedBy = "patient")
     private List<VisitEntity> visitList;
 

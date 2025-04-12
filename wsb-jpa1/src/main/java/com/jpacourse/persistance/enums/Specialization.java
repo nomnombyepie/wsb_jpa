@@ -6,5 +6,4 @@ public enum Specialization {
 	GP,
 	DERMATOLOGIST,
 	OCULIST
-
 }

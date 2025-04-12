@@ -32,7 +32,6 @@ public class DoctorEntity {
 	@Enumerated(EnumType.STRING)
 	private Specialization specialization;
 
-	//unidirectional from parent's end
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name = "doctor_id")
 	private List<AddressEntity> addressList;
@@ -40,7 +39,7 @@ public class DoctorEntity {
 	@OneToMany(mappedBy = "doctor")
 	private List<VisitEntity> visitList;
 
-	//bidirectional
+
 	public List<VisitEntity> getVisitList() {
 		return visitList;
 	}
