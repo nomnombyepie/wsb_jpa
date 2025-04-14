@@ -9,6 +9,7 @@ public class AddressEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private Long id;
 
 	private String city;
@@ -18,6 +19,14 @@ public class AddressEntity {
 	private String addressLine2;
 
 	private String postalCode;
+
+	@ManyToOne
+	@JoinColumn(name = "doctor_id", nullable = true)
+	private DoctorEntity doctor;
+
+	@ManyToOne
+	@JoinColumn(name = "patient_id", nullable = true)
+	private PatientEntity patient;
 
 	public Long getId() {
 		return id;
@@ -58,5 +67,7 @@ public class AddressEntity {
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
+
+
 
 }

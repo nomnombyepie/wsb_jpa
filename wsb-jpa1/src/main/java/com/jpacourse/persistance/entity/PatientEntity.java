@@ -2,6 +2,7 @@ package com.jpacourse.persistance.entity;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.ArrayList;
 
 import jakarta.persistence.*;
 
@@ -30,22 +31,12 @@ public class PatientEntity {
     @Column(nullable = false)
     private LocalDate dateOfBirth;
 
-
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "patient_id")
-    private List<AddressEntity> addressList;
+    private Integer age;
 
 
-    @OneToMany(mappedBy = "patient")
-    private List<VisitEntity> visitList;
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<AddressEntity> addresses = new ArrayList<>();
 
-    public List<VisitEntity> getVisitList() {
-        return visitList;
-    }
-
-    public void setVisitList(List<VisitEntity> visitList) {
-        this.visitList = visitList;
-    }
 
     public Long getId() {
         return id;
@@ -103,11 +94,16 @@ public class PatientEntity {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public List<AddressEntity> getAddressList() {
-        return addressList;
+    public List<AddressEntity> getAddresses() {
+        return addresses;
     }
 
-    public void setAddressList(List<AddressEntity> addressList) {
-        this.addressList = addressList;
+    public void setAddresses(List<AddressEntity> addresses) {
+        this.addresses = addresses;
     }
+
+    public Integer getAge() {
+        return age;
+    }
+    public void setAge(Integer age) {this.age = age;}
 }
