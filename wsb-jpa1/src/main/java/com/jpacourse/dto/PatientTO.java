@@ -22,6 +22,9 @@ public class PatientTO {
 
     private List<AddressTO> addresses;
 
+    private List<VisitTO> visitList;
+
+
     public Long getId() { return id; }
 
     public void setId(Long id) { this.id = id; }
@@ -53,4 +56,12 @@ public class PatientTO {
     public List<AddressTO> getAddresses() { return addresses; }
 
     public void setAddresses(List<AddressTO> addresses) { this.addresses = addresses; }
+
+    public List<VisitTO> getVisitList() {
+        return visitList;
+    }
+
+    public void setVisitList(List<VisitTO> visitList) {
+        this.visitList = visitList;
+    }
 }

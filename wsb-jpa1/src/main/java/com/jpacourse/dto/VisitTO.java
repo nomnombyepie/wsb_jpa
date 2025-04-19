@@ -13,6 +13,7 @@ public class VisitTO implements Serializable {
     private String doctorFirstName;      // imię lekarza
     private String doctorLastName;       // nazwisko lekarza
     private List<MedicalTreatmentEntity> treatments = new ArrayList<>(); // lista typów zabiegów
+    private DoctorTO doctor; // doktorek
 
     // Gettery i settery
     public Long getId() {
@@ -53,5 +54,13 @@ public class VisitTO implements Serializable {
 
     public void setTreatments(List<MedicalTreatmentEntity> treatments) {
         this.treatments = treatments;
+    }
+
+    public DoctorTO getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(DoctorTO doctor) {
+        this.doctor = doctor;
     }
 }
