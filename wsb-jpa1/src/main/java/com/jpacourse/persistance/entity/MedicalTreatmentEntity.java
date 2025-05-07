@@ -46,4 +46,6 @@ public class MedicalTreatmentEntity {
 		this.type = type;
 	}
 
+	//tu powinna byc funkcja getVisit()
+
 }
